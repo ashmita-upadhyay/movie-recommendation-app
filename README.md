@@ -1,5 +1,20 @@
 # AI-Based Movie Recommendation System
 
+## How to run project locally
+
+### Backend
+cd backend
+npm install
+node server.js
+
+### Frontend
+cd frontend
+npm install
+npm run dev
+
+
+
+
 This is a **full-stack AI-powered movie recommendation system** that provides personalized movie suggestions based on user preferences. Users can enter genres, actors, themes, or moods, and the system generates curated movie recommendations using **Google Generative AI (text-bison-001 model)**.
 
 ## Features
