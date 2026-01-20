@@ -2,7 +2,10 @@ import { buildApp } from "./app.js";
 
 const fastify = buildApp();
 
-export default async function handler(req, res) {
-  await fastify.ready();
-  fastify.server.emit("request", req, res);
-}
+fastify.listen({ port: process.env.PORT || 3001, host: "0.0.0.0" }, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  console.log("Backend running on:", address);
+});

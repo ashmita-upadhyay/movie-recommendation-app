@@ -12,7 +12,7 @@ function App() {
     setMovies([]); 
 
     try {
-      const res = await fetch("/api/recommend", {
+      const res = await fetch("http://localhost:3001/api/recommend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userInput: input }),

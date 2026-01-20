@@ -25,10 +25,11 @@ export function buildApp() {
       Return only movie names separated by commas.
     `;
 
-    let text;
+    let text = "";
+
     try {
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-2.5-pro",
         contents: prompt,
       });
       text = response.text;
@@ -37,7 +38,8 @@ export function buildApp() {
       text = "Movie 1, Movie 2, Movie 3, Movie 4, Movie 5";
     }
 
-    const movies = text.split(",").map(m => m.trim());
+    const movies = text.split(",").map((m) => m.trim());
+
     db.run(
       "INSERT INTO recommendations (user_input, recommended_movies) VALUES (?, ?)",
       [userInput, movies.join(", ")]
