@@ -16,7 +16,7 @@ function App() {
     setError("");
     setLoading(true);
     try {
-      const response = await fetch("https://your-backend.onrender.com/recommend", {
+      const response = await fetch("https://movie-recommendation-app-33qf.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
