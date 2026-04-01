@@ -68,10 +68,16 @@ Return only movie names separated by commas.
 });
 
 // ---------- Server Start ----------
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
-fastify.listen({ port: PORT }, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+fastify.listen({ port: PORT,
+  host : "0.0.0.0"
+ }, (err, address) => {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+    console.log(`🚀 Server running on ${address}`);
   console.log("Gemini Key Loaded:", process.env.GEMINI_API_KEY ? "YES" : "NO");
 
 });
