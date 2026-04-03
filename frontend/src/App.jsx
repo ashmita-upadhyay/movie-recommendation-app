@@ -16,13 +16,16 @@ function App() {
     setError("");
     setLoading(true);
     try {
-      const response = await fetch("https://movie-recommendation-app-33qf.onrender.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ userInput: preference })
-      });
+      const response = await fetch(
+  "https://movie-recommendation-app-33qf.onrender.com/recommend",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ userInput: preference })
+  }
+);
 
       const data = await response.json();
 
